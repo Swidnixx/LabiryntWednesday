@@ -17,7 +17,7 @@ public class PlayerLook : MonoBehaviour
 
     private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensivity;
+        float mouseX = Input.GetAxis("Mouse X") * Time.unscaledDeltaTime * sensivity;
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensivity;
 
         xRotation -= mouseY;

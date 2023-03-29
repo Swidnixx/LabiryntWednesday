@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,15 @@ public class PlayerMovement : MonoBehaviour
 {
     public LayerMask groundMask;
     public MeshRenderer playerRenderer;
+    public float regularSpeed = 7;
+    public float speedFast = 15;
+    public float speedSlow = 5;
 
-    public float speed = 1;
+    private float speed;
     CharacterController controller;
     bool grounded;
+    float velocityY;
+    string groundTag;
 
     private void Start()
     {
@@ -21,9 +27,38 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         GroundCheck();
         Gravity();
+        AdjustSpeedByGround();
     }
 
-    float velocityY;
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Pickup"))
+        {
+            Debug.Log("Detected pickup");
+        }
+        else
+        {
+            Debug.Log("Detected some trigger");
+        }
+    }
+    private void AdjustSpeedByGround()
+    {
+        switch (groundTag)
+        {
+            case "SlowGround":
+                speed = speedSlow;
+                break;
+
+            case "FastGround":
+                speed = speedFast;
+                break;
+
+            default:
+                speed = regularSpeed;
+                break;
+        }
+    }
+
     void Gravity()
     {
         if(!grounded)
@@ -45,11 +80,14 @@ public class PlayerMovement : MonoBehaviour
         if(grounded)
         {
             playerRenderer.material.color = Color.green;
+            groundTag = hit.collider.tag;
         }
         else
         {
             playerRenderer.material.color = Color.red;
+            groundTag = "Undefined";
         }
+
     }
 
     void Movement()
