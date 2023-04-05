@@ -30,17 +30,7 @@ public class PlayerMovement : MonoBehaviour
         AdjustSpeedByGround();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Pickup"))
-        {
-            Debug.Log("Detected pickup");
-        }
-        else
-        {
-            Debug.Log("Detected some trigger");
-        }
-    }
+ 
     private void AdjustSpeedByGround()
     {
         switch (groundTag)

@@ -18,13 +18,26 @@ public class GameManager : MonoBehaviour
 
     //Game Logic
     public int timer = 60;
+    bool paused;
+
+    //Pickups
+    int diamondsCount;
+
+    public void AddDiamond()
+    {
+        diamondsCount++;
+    }
+    public void AddTime( int time )
+    {
+        timer += time;
+    }
 
     private void Start()
     {
         InvokeRepeating(nameof(Stopper), 3, 1);
     }
 
-    bool paused;
+
     private void Update()
     {
         if( Input.GetButtonDown("Cancel") )
