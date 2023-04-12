@@ -16,12 +16,38 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+
     //Game Logic
     public int timer = 60;
     bool paused;
 
     //Pickups
     int diamondsCount;
+
+    int redKeys;
+    int greenKeys;
+    int goldKeys;
+
+    internal void AddKey(Key.KeyType type)
+    {
+        switch (type)
+        {
+            case Key.KeyType.Red:
+                redKeys++;
+                break;
+            case Key.KeyType.Green:
+                greenKeys++;
+                break;
+            case Key.KeyType.Gold:
+                goldKeys++;
+                break;
+        }
+    }
+    public void FreezeTime( int time )
+    {
+        CancelInvoke();
+        InvokeRepeating(nameof(Stopper), time, 1);
+    }
 
     public void AddDiamond()
     {

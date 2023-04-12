@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Pickup : MonoBehaviour
 {
-    public float speed = 1;
+    public float speed = 100;
 
     private void Update()
     {
