@@ -37,12 +37,15 @@ public class PortalTeleport : MonoBehaviour
 
             if( Vector3.Dot( transform.up, portalToPlayer) < 0)
             {
-                //Vector3 playerOffset = player.position - transform.position;
-                //playerOffset = transform.parent.InverseTransformDirection(playerOffset);
-                //playerOffset = linkedPortal.parent.TransformDirection(playerOffset);
+                portalToPlayer = transform.parent.InverseTransformDirection(portalToPlayer);
+                portalToPlayer = linkedPortal.parent.TransformDirection(portalToPlayer);
 
                 player.position = linkedPortal.position + portalToPlayer;
-                player.forward = linkedPortal.up;
+
+                Vector3 playerForward = transform.parent.InverseTransformDirection(player.forward);
+                playerForward = linkedPortal.parent.TransformDirection(playerForward);
+
+                player.forward = playerForward;
 
                 playerOverlapping = false;
             }
