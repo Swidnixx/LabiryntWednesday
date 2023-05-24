@@ -11,8 +11,8 @@ public class PlayerLook : MonoBehaviour
     private void Start()
     {
         player = transform.parent;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+       // Cursor.lockState = CursorLockMode.Locked;
+       // Cursor.visible = false;
     }
 
     private void Update()
