@@ -49,6 +49,16 @@ public class GameManager : MonoBehaviour
         InvokeRepeating(nameof(Stopper), time, 1);
     }
 
+    internal bool CheckTheKey(Key.KeyType keyColor)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal void UseTheKey(Key.KeyType keyColor)
+    {
+        throw new NotImplementedException();
+    }
+
     public void AddDiamond()
     {
         diamondsCount++;
