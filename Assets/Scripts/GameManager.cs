@@ -51,12 +51,35 @@ public class GameManager : MonoBehaviour
 
     internal bool CheckTheKey(Key.KeyType keyColor)
     {
-        throw new NotImplementedException();
+        switch (keyColor)
+        {
+            case Key.KeyType.Red:
+                return redKeys > 0;
+                
+            case Key.KeyType.Green:
+                return greenKeys > 0;
+                
+            case Key.KeyType.Gold:
+                return goldKeys > 0;
+        }
+
+        return false;
     }
 
     internal void UseTheKey(Key.KeyType keyColor)
     {
-        throw new NotImplementedException();
+        switch (keyColor)
+        {
+            case Key.KeyType.Red:
+                redKeys--;
+                break;
+            case Key.KeyType.Green:
+                greenKeys--;
+                break;
+            case Key.KeyType.Gold:
+                goldKeys--;
+                break;
+        }
     }
 
     public void AddDiamond()
