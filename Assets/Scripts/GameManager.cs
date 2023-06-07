@@ -49,6 +49,11 @@ public class GameManager : MonoBehaviour
         InvokeRepeating(nameof(Stopper), time, 1);
     }
 
+    internal void GameOver()
+    {
+        Debug.Log("Game Over");
+    }
+
     internal bool CheckTheKey(Key.KeyType keyColor)
     {
         switch (keyColor)
