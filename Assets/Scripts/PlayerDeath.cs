@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerDeath : MonoBehaviour
 {
     public PlayerMovement pm;
-    public float fallSpeed = 1;
+    public float fallTime = 1;
+    public float fallDegree = 90;
 
     bool killed = false;
 
@@ -28,18 +29,18 @@ public class PlayerDeath : MonoBehaviour
 
     IEnumerator FallDown()
     {
-        for (int i = 0; i < 500; i++)
+        for (float i = 0; i < fallTime; i+=Time.deltaTime)
         {
-            transform.Rotate(Vector3.right * fallSpeed * Time.deltaTime, Space.Self);
+            transform.Rotate(Vector3.right * fallDegree * Time.deltaTime, Space.Self);
             yield return null;
         }
         StartCoroutine(LayDown());
     }
     IEnumerator LayDown()
     {
-        for (int i = 0; i < 500; i++)
+        for (float i = 0; i < fallTime; i+=Time.deltaTime)
         {
-            transform.Rotate(Vector3.up * fallSpeed * Time.deltaTime, Space.Self);
+            transform.Rotate(Vector3.up * fallDegree* Time.deltaTime, Space.Self);
             yield return null;
         }
 
