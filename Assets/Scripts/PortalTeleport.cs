@@ -6,6 +6,7 @@ public class PortalTeleport : MonoBehaviour
 {
     bool playerOverlapping;
     Transform player;
+    [HideInInspector]
     public Transform linkedPortal;
 
     private void Start()

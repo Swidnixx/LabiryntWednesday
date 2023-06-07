@@ -16,5 +16,9 @@ public class LevelGeneratorEditor : Editor
         {
             lgen.Generate();
         }
+        if (GUILayout.Button("Clear"))
+        {
+            lgen.Clear();
+        }
     }
 }

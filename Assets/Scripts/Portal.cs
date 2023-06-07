@@ -6,12 +6,14 @@ public class Portal : MonoBehaviour
 {
     public Portal linkedPortal;
     public MeshRenderer renderer;
+    public PortalTeleport teleport;
 
     Camera portalCam;
     Transform playerCam;
 
     private void Awake()
     {
+        teleport.linkedPortal = linkedPortal.teleport.transform;
         playerCam = Camera.main.transform;
         portalCam = GetComponentInChildren<Camera>();
     }

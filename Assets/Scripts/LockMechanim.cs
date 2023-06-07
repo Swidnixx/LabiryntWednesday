@@ -6,6 +6,12 @@ public class LockMechanim : MonoBehaviour
 {
     public DoorMechanim[] doorToOpen;
     public Key.KeyType keyColor;
+
+    public Renderer[] lockModel;
+    public Material goldMat;
+    public Material redMat;
+    public Material greenMat;
+    
     bool playerInRange;
     bool alreadyOpen = false; 
 
@@ -14,6 +20,26 @@ public class LockMechanim : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+
+        AssignMaterial();
+    }
+    void AssignMaterial()
+    {
+        foreach(var r in lockModel)
+        {
+            switch (keyColor)
+            {
+                case Key.KeyType.Red:
+                    r.material = redMat;
+                    break;
+                case Key.KeyType.Green:
+                    r.material = greenMat;
+                    break;
+                case Key.KeyType.Gold:
+                    r.material = goldMat;
+                    break;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
