@@ -61,9 +61,12 @@ public class Pacman : MonoBehaviour
     }
     IEnumerator PlayHarshSounds()
     {
+        audioSource.Stop();
         while(true)
         {
-            audioSource.PlayOneShot(clips[0]);
+            float length = Random.Range(0.5f, 1.5f);
+            audioSource.pitch = length;
+            audioSource.PlayOneShot(clips[0], length);
             yield return new WaitForSeconds(clips[0].length);
         }
     }
