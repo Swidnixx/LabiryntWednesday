@@ -57,6 +57,7 @@ MonoBehaviour:
   - {fileID: 0}
   keyColor: 2
   gearsDelay: 1
+  keyUnlockClip: {fileID: 8300000, guid: 78ef9a2bfdc905742a394d7f002b8f46, type: 3}
 --- !u!65 &1675741182023409933
 BoxCollider:
   m_ObjectHideFlags: 0

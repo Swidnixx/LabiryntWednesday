@@ -17,6 +17,8 @@ public class LockMechanim : MonoBehaviour
 
     Animator animator;
 
+    public AudioClip keyUnlockClip;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -56,6 +58,7 @@ public class LockMechanim : MonoBehaviour
                     animator.SetTrigger("open");
                     alreadyOpen = true;
                     DisplayUI.Instance.ClearInfoText();
+                    SoundManager.Instance.PlaySFX( keyUnlockClip );
                 } 
             }
        }

@@ -8,7 +8,7 @@ public class Key : Pickup
 
     protected override void OnPicked()
     {
-        Debug.Log("Podniesiono klucz");
+        base.OnPicked();
         GameManager.Instance.AddKey( type );
     }
 

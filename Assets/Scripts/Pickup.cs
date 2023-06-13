@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Pickup : MonoBehaviour
 {
     public float speed = 100;
+    public AudioClip pickSound;
 
     private void Update()
     {
@@ -22,6 +23,7 @@ public abstract class Pickup : MonoBehaviour
 
     protected virtual void OnPicked()
     {
+        SoundManager.Instance.PlaySFX(pickSound);
         Debug.Log("Podniesiono pickup");
     }
 }

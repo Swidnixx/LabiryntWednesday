@@ -47,9 +47,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fda24a492a8894b907608f5a359a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnUnlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOpened:
+    m_PersistentCalls:
+      m_Calls: []
   doorToOpen:
   - {fileID: 0}
   keyColor: 1
+  gearsDelay: 1
+  keyUnlockClip: {fileID: 8300000, guid: 78ef9a2bfdc905742a394d7f002b8f46, type: 3}
 --- !u!65 &1675741182023409933
 BoxCollider:
   m_ObjectHideFlags: 0

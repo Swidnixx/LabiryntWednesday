@@ -6,7 +6,7 @@ public class Diamond : Pickup
 {
     protected override void OnPicked()
     {
-        Debug.Log("Podniesiono Diament");
+        base.OnPicked();
         GameManager.Instance.AddDiamond();
     }
 }

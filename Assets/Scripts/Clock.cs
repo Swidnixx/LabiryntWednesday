@@ -8,7 +8,7 @@ public class Clock : Pickup
 
     protected override void OnPicked()
     {
-        Debug.Log("Podniesiono zegarek");
+        base.OnPicked();
         GameManager.Instance.AddTime(time);
     }
 }

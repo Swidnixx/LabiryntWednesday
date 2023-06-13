@@ -8,6 +8,7 @@ public class GearSystem : MonoBehaviour
 {
     Rotator[] rotators;
     float[] speeds;
+    public AudioClip gearsSound;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class GearSystem : MonoBehaviour
 
     public void On()
     {
+        SoundManager.Instance.PlaySFX(gearsSound);
         for (int i = 0; i < rotators.Length; i++)
         {
             rotators[i].speed = speeds[i];

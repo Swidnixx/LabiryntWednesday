@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
+  pickSound: {fileID: 8300000, guid: b16360927e0de7b489ffe06d53db2530, type: 3}
   time: 20
 --- !u!1001 &4152221843201760811
 PrefabInstance:

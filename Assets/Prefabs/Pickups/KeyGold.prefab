@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
+  pickSound: {fileID: 8300000, guid: e3c00dba9ad7a7d47ba96a5fd99687eb, type: 3}
   type: 2
 --- !u!136 &7301726136366996022
 CapsuleCollider:
