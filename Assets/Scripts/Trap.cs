@@ -19,6 +19,11 @@ public class Trap : MonoBehaviour
         StartCoroutine(Cycle());
     }
 
+    public void AdjustOffTime(float offset)
+    {
+        offTime += offset;
+    }
+
     private IEnumerator Cycle()
     {
         while (true)

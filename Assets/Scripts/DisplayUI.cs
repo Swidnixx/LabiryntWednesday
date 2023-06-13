@@ -43,6 +43,13 @@ public class DisplayUI : MonoBehaviour
         winPanel.SetActive(false);
     }
 
+    private void OnDestroy()
+    {
+        GameManager.Paused -= OnPause;
+        GameManager.Lose -= OnLose;
+        GameManager.Win -= OnWin;
+    }
+
     private void Update()
     {
         timeText.text = GameManager.Instance.timer.ToString();

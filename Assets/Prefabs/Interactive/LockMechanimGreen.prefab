@@ -53,8 +53,7 @@ MonoBehaviour:
   OnOpened:
     m_PersistentCalls:
       m_Calls: []
-  doorToOpen:
-  - {fileID: 0}
+  doorToOpen: []
   keyColor: 1
   gearsDelay: 1
   keyUnlockClip: {fileID: 8300000, guid: 78ef9a2bfdc905742a394d7f002b8f46, type: 3}

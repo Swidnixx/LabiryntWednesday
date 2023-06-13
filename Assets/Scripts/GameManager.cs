@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Multiple GMs in the Scene!");
         }
         Instance = this;
+        Key.LoadGoldKeys();
     }
 
     //Main Game Events
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     public int timer = 60;
     bool paused;
     public bool Freeze { get; private set; }
+    bool gameEnded;
 
     //Pickups
     public int DiamondsCount { get; private set; }
@@ -35,9 +38,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         InvokeRepeating(nameof(Stopper), 3, 1);
     }
-
     private void Update()
     {
         if( Input.GetButtonDown("Cancel") )
@@ -51,6 +56,22 @@ public class GameManager : MonoBehaviour
                 Pause();
             }
         }
+
+        if(gameEnded)
+        {
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            if(Input.GetKeyDown(KeyCode.Q))
+            {
+                Application.Quit();
+            }
+        }
+    }
+    private void OnApplicationQuit()
+    {
+        Key.SaveGoldKeys();
     }
 
     #region GameFlow - Pause, Win, Lose, Time
@@ -73,11 +94,12 @@ public class GameManager : MonoBehaviour
     }
     internal void GameOver()
     {
-        Debug.Log("Game Over");
+        gameEnded = true;
         Lose?.Invoke();
     }
     public void GameWin()
     {
+        gameEnded = true;
         Win?.Invoke();
     }
     #endregion
