@@ -26,8 +26,11 @@ public class LockMechanim : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("Player in range");
             playerInRange = true;
+            if (!alreadyOpen)
+            {
+                DisplayUI.Instance.DisplayInfo("Press E to Open if you have proper key"); 
+            }
         }
     }
 
@@ -35,8 +38,8 @@ public class LockMechanim : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player out of range");
-            playerInRange = false;
+            DisplayUI.Instance.ClearInfoText();
+           playerInRange = false;
         }
     }
 
@@ -52,7 +55,7 @@ public class LockMechanim : MonoBehaviour
                     GameManager.Instance.UseTheKey(keyColor);
                     animator.SetTrigger("open");
                     alreadyOpen = true;
-                    OnUnlocked.Invoke();
+                    DisplayUI.Instance.ClearInfoText();
                 } 
             }
        }
@@ -60,7 +63,8 @@ public class LockMechanim : MonoBehaviour
 
     public void Open()
     {
-        foreach(DoorMechanim d in doorToOpen)
+        OnUnlocked.Invoke();
+        foreach (DoorMechanim d in doorToOpen)
         {
             d.open = true;
             Invoke(nameof(Opened), gearsDelay);

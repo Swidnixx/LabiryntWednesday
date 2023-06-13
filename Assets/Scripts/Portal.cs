@@ -35,8 +35,8 @@ public class Portal : MonoBehaviour
 
         Vector3 cameraToPortal = transform.position - portalCam.transform.position;
         float nearPlane = cameraToPortal.magnitude;
-        if (nearPlane > 1)
-            portalCam.nearClipPlane = Mathf.Clamp(nearPlane - 2f, 0.01f, 50);
+        if (nearPlane > 0.2f)
+            portalCam.nearClipPlane = Mathf.Clamp(nearPlane - 0.2f, 0.01f, 50);
         else
             portalCam.nearClipPlane = 0.01f;
 
