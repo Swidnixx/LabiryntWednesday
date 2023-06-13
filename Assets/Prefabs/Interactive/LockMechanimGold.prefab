@@ -47,9 +47,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fda24a492a8894b907608f5a359a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnUnlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  OnOpened:
+    m_PersistentCalls:
+      m_Calls: []
   doorToOpen:
   - {fileID: 0}
   keyColor: 2
+  gearsDelay: 1
 --- !u!65 &1675741182023409933
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -110,8 +117,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675741183626910374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.23, y: -0.41, z: 0.31}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.558, y: -0.403, z: 0.504}
+  m_LocalScale: {x: 0.6277039, y: 0.6277039, z: 0.6277039}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6660211255468126760}

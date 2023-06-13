@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerLook : MonoBehaviour
 {
     public float sensivity = 250;
+    public Transform player;
 
     float xRotation = 0;
-    Transform player;
     private void Start()
     {
-        player = transform.parent;
+       // player = transform.parent;
        // Cursor.lockState = CursorLockMode.Locked;
        // Cursor.visible = false;
     }

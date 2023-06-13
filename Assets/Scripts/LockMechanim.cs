@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LockMechanim : MonoBehaviour
 {
+    public UnityEvent OnUnlocked;
+    public UnityEvent OnOpened;
+
     public DoorMechanim[] doorToOpen;
     public Key.KeyType keyColor;
+    public float gearsDelay = 1;
+
     bool playerInRange;
     bool alreadyOpen = false; 
 
@@ -46,6 +52,7 @@ public class LockMechanim : MonoBehaviour
                     GameManager.Instance.UseTheKey(keyColor);
                     animator.SetTrigger("open");
                     alreadyOpen = true;
+                    OnUnlocked.Invoke();
                 } 
             }
        }
@@ -56,6 +63,12 @@ public class LockMechanim : MonoBehaviour
         foreach(DoorMechanim d in doorToOpen)
         {
             d.open = true;
+            Invoke(nameof(Opened), gearsDelay);
         }
+    }
+
+    void Opened()
+    {
+        OnOpened.Invoke();
     }
 }

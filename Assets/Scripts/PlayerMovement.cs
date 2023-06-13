@@ -10,12 +10,17 @@ public class PlayerMovement : MonoBehaviour
     public float regularSpeed = 7;
     public float speedFast = 15;
     public float speedSlow = 5;
+    public float jumpPower = 10;
+
+    [Header("Animations")]
+    public Animator animator;
 
     private float speed;
     CharacterController controller;
     bool grounded;
     float velocityY;
     string groundTag;
+    Vector3 previousPos;
 
     private void Start()
     {
@@ -28,6 +33,23 @@ public class PlayerMovement : MonoBehaviour
         GroundCheck();
         Gravity();
         AdjustSpeedByGround();
+
+    }
+
+    private void FixedUpdate()
+    {
+        HandleAnimation();
+
+    }
+
+    private void HandleAnimation()
+    {
+        animator.SetBool("walking", Vector3.Distance( previousPos, transform.position  ) > 0.01f);
+    }
+
+    private void Jump()
+    {
+        velocityY = jumpPower;
     }
 
  
@@ -43,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
                 speed = speedFast;
                 break;
 
+            case "JumpGround":
+                Jump();
+                break;
+
             default:
                 speed = regularSpeed;
                 break;
@@ -51,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Gravity()
     {
+        if (velocityY > 0) grounded = false;
+
         if(!grounded)
         {
             velocityY += Physics.gravity.y * Time.deltaTime;
@@ -63,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void GroundCheck()
     {
+
         Ray ray = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
         grounded = Physics.SphereCast(ray, 0.5f, out hit, 0.6f, groundMask.value);
@@ -90,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
         if (move.magnitude > 1)
             move = move.normalized;
 
+        previousPos = transform.position;
         controller.Move(move * Time.deltaTime * speed);
     }
 }
