@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Portal : MonoBehaviour
 {
@@ -8,12 +9,15 @@ public class Portal : MonoBehaviour
     public MeshRenderer renderer;
     public PortalTeleport teleport;
 
+    public UnityEvent OnTeleportFrom;
+    public UnityEvent OnTeleportTo;
+
     Camera portalCam;
     Transform playerCam;
 
     private void Awake()
     {
-        teleport.linkedPortal = linkedPortal.teleport.transform;
+        teleport.linkedPortal = linkedPortal.teleport;
         playerCam = Camera.main.transform;
         portalCam = GetComponentInChildren<Camera>();
     }

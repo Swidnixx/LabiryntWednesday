@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         HandleAnimation();
-
+        if (controller.collisionFlags == CollisionFlags.Above) velocityY = 0;
     }
 
     private void HandleAnimation()
@@ -91,7 +91,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void GroundCheck()
     {
-
         Ray ray = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
         grounded = Physics.SphereCast(ray, 0.5f, out hit, 0.6f, groundMask.value);

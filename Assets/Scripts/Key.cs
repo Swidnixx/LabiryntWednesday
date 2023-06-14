@@ -92,6 +92,15 @@ public class Key : Pickup
         }
     }
 
+    public static void ClearRedKeys()
+    {
+        var redKeys = collectedKeys.Where(pair => pair.Value == KeyType.Red).ToList();
+        foreach(var k in redKeys)
+        {
+            collectedKeys.Remove(k.Key);
+        }
+    }
+
     public static void PrintList()
     {
         Debug.Log("Registered:");

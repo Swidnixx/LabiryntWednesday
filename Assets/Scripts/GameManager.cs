@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if( Input.GetButtonDown("Cancel") )
+        if( Input.GetButtonDown("Cancel") && !gameEnded)
         {
             if(paused)
             {
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(gameEnded)
+        if(gameEnded || paused)
         {
             if(Input.GetKeyDown(KeyCode.R))
             {

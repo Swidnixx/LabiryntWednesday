@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929223062192238979}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 35.27, y: 2.482, z: 4.9399996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -51,6 +51,12 @@ MonoBehaviour:
   linkedPortal: {fileID: 0}
   renderer: {fileID: 3007245754954798900}
   teleport: {fileID: 7295328960506825539}
+  OnTeleportFrom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTeleportTo:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1237751206177225458
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +82,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237751206177225458}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.26}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -153,7 +159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2405556579321520162}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0059, y: -0.64, z: -0.2}
+  m_LocalPosition: {x: 0.0059, y: -0.64, z: 0}
   m_LocalScale: {x: 0.42, y: 1, z: 0.37}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -194,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linkedPortal: {fileID: 0}
+  parentPortal: {fileID: 6784024742879096568}
 --- !u!1 &2658832311624988383
 GameObject:
   m_ObjectHideFlags: 0

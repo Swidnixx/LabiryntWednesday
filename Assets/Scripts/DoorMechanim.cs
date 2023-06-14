@@ -25,4 +25,14 @@ public class DoorMechanim : MonoBehaviour
             door.position = Vector3.MoveTowards(door.position, closedPos.position, speed * Time.deltaTime);
         }
     }
+
+    public void Open()
+    {
+        open = true;
+    }
+
+    public void Close()
+    {
+        open = false;
+    }
 }

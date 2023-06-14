@@ -322,6 +322,12 @@ MonoBehaviour:
   linkedPortal: {fileID: 0}
   renderer: {fileID: 8374918994853447850}
   teleport: {fileID: 4088254064803550429}
+  OnTeleportFrom:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTeleportTo:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8238669942063172903
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,3 +576,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linkedPortal: {fileID: 0}
+  parentPortal: {fileID: 263426423216959846}

@@ -137,7 +137,7 @@ public class Pacman : MonoBehaviour
 
         for (int i = 0; i < directions.Length; i++)
         {
-            availableDirs[i] = !Physics.Raycast(currentPos, directions[i], tileSize * 0.5f + 0.1f, wallMask);
+            availableDirs[i] = !Physics.Raycast(currentPos, directions[i], tileSize, wallMask);
         }
 
         int[] indices = (new int[] { 0, 1, 2, 3 }).OrderByDescending(i => Vector3.Dot(directions[i], toPlayerDir)).ToArray();
@@ -162,7 +162,7 @@ public class Pacman : MonoBehaviour
 
         for (int i = 0; i < directions.Length; i++)
         {
-            availableDirs[i] = !Physics.Raycast(currentPos, directions[i], tileSize * 0.5f + 0.1f, wallMask);
+            availableDirs[i] = !Physics.Raycast(currentPos, directions[i], tileSize, wallMask);
         }
 
         int[] indices = (new int[] { 0, 1, 2, 3 }).Where(i => availableDirs[i]).ToArray();

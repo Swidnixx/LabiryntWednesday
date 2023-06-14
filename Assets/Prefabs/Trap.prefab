@@ -193,7 +193,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4399999, y: 1.1087525, z: 1.4399999}
+  m_Size: {x: 2, y: 1.1087525, z: 2}
   m_Center: {x: -0.00000023841856, y: 0.44562387, z: -0.0000002980232}
 --- !u!1 &8397383146025080289
 GameObject:
@@ -311,3 +311,4 @@ MonoBehaviour:
   speed: 5
   offTime: 2
   onTime: 1
+  offset: 0

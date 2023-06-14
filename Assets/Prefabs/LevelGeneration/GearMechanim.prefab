@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 47891063900405531}
   - component: {fileID: 47891063900405530}
   - component: {fileID: 47891063900405529}
+  - component: {fileID: 146482269}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -98,6 +99,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &146482269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47891063900405735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f247e9dccbbda87489e53bf8c6ff60ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 25
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &47891064854565873
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de72062c164d95a4aaf0b52e2ce883b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gearsSound: {fileID: 0}
 --- !u!1 &7315539146089541728
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +175,7 @@ GameObject:
   - component: {fileID: 604107976659315421}
   - component: {fileID: 1215832666341517698}
   - component: {fileID: 6785159103114569627}
+  - component: {fileID: 580113029}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -245,6 +262,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &580113029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315539146089541728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f247e9dccbbda87489e53bf8c6ff60ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -35
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1001 &47891064551115158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -340,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f247e9dccbbda87489e53bf8c6ff60ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -15
+  speed: -75
   axis: {x: 0, y: 1, z: 0}
 --- !u!1001 &47891064614689995
 PrefabInstance:
@@ -437,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f247e9dccbbda87489e53bf8c6ff60ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 115
   axis: {x: 0, y: 1, z: 0}
 --- !u!1001 &47891064954635075
 PrefabInstance:

@@ -9,6 +9,7 @@ TagManager:
   - Deadly
   - Pickup
   - JumpGround
+  - Win
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,8 @@ public class PortalTeleport : MonoBehaviour
 {
     bool playerOverlapping;
     Transform player;
-    public Transform linkedPortal;
+    public PortalTeleport linkedPortal;
+    public Portal parentPortal;
 
     private void Start()
     {
@@ -38,16 +39,19 @@ public class PortalTeleport : MonoBehaviour
             if( Vector3.Dot( transform.up, portalToPlayer) < 0)
             {
                 portalToPlayer = transform.parent.InverseTransformDirection(portalToPlayer);
-                portalToPlayer = linkedPortal.parent.TransformDirection(portalToPlayer);
+                portalToPlayer = linkedPortal.transform.parent.TransformDirection(portalToPlayer);
 
-                player.position = linkedPortal.position + portalToPlayer;
+                player.position = linkedPortal.transform.position + portalToPlayer;
 
                 Vector3 playerForward = transform.parent.InverseTransformDirection(player.forward);
-                playerForward = linkedPortal.parent.TransformDirection(playerForward);
+                playerForward = linkedPortal.transform.parent.TransformDirection(playerForward);
 
                 player.forward = playerForward;
 
                 playerOverlapping = false;
+
+                parentPortal.OnTeleportFrom.Invoke();
+                linkedPortal.parentPortal.OnTeleportTo.Invoke();
             }
         }
     }

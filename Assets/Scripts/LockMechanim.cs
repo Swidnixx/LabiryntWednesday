@@ -67,10 +67,10 @@ public class LockMechanim : MonoBehaviour
     public void Open()
     {
         OnUnlocked.Invoke();
+        Invoke(nameof(Opened), gearsDelay);
         foreach (DoorMechanim d in doorToOpen)
         {
             d.open = true;
-            Invoke(nameof(Opened), gearsDelay);
         }
     }
 
