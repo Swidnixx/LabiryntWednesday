@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1832145169359351040}
   m_Layer: 0
-  m_Name: Floor
+  m_Name: FloorFast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 2269409945189870850}
   - component: {fileID: 2035499974678502946}
   - component: {fileID: 2886994350460431853}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: FastGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc9f9e3144e557b46962326801f034cf, type: 2}
+  - {fileID: 2100000, guid: c6419c7dcba60224ea959af41120b355, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

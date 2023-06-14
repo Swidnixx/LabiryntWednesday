@@ -9,11 +9,6 @@ public class LevelGenerator : MonoBehaviour
     public ColorToPrefabMapping[] mappings;
     public float tileSize = 5;
 
-    private void Start()
-    {
-        Generate();
-    }
-
     public void Clear()
     {
         for(int i= transform.childCount-1; i>=0; i--)

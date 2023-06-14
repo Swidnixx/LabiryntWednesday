@@ -44,9 +44,9 @@ public class LockMechanim : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && !alreadyOpen)
         {
-            Debug.Log("Player in range");
+            DisplayUI.Instance.DisplayInfo("Press E to Unlock");
             playerInRange = true;
         }
     }
@@ -55,7 +55,7 @@ public class LockMechanim : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player out of range");
+            DisplayUI.Instance.ClearInfoText();
             playerInRange = false;
         }
     }
@@ -72,6 +72,7 @@ public class LockMechanim : MonoBehaviour
                     GameManager.Instance.UseTheKey(keyColor);
                     animator.SetTrigger("open");
                     alreadyOpen = true;
+                    DisplayUI.Instance.ClearInfoText();
                 } 
             }
        }
