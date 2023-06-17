@@ -11,6 +11,7 @@ public class PortalTeleport : MonoBehaviour
 
     private void Start()
     {
+      
         player = GameObject.FindObjectOfType<PlayerMovement>().transform;
     }
 
@@ -52,6 +53,10 @@ public class PortalTeleport : MonoBehaviour
 
                 parentPortal.OnTeleportFrom.Invoke();
                 linkedPortal.parentPortal.OnTeleportTo.Invoke();
+
+                //Optimalisation
+                parentPortal.Activate();
+                linkedPortal.parentPortal.Deactivate();
             }
         }
     }

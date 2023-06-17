@@ -27,6 +27,8 @@ public class Portal : MonoBehaviour
         RenderTexture rt = new RenderTexture( Screen.width, Screen.height, 0);
         portalCam.targetTexture = rt;
         linkedPortal.renderer.material.SetTexture("_MainTex", rt);
+
+        Deactivate();
     }
 
     private void Update()
@@ -44,5 +46,21 @@ public class Portal : MonoBehaviour
         else
             portalCam.nearClipPlane = 0.01f;
 
+    }
+
+    public void Deactivate()
+    {
+        linkedPortal.portalCam.enabled = false;
+    }
+
+    public void Activate()
+    {
+        linkedPortal.portalCam.enabled = true;
+    }
+
+    public void DeactivateBoth()
+    {
+        Deactivate();
+        linkedPortal.Deactivate();
     }
 }
