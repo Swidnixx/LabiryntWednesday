@@ -55,8 +55,8 @@ public class PortalTeleport : MonoBehaviour
                 linkedPortal.parentPortal.OnTeleportTo.Invoke();
 
                 //Optimalisation
-                parentPortal.Activate();
-                linkedPortal.parentPortal.Deactivate();
+                linkedPortal.parentPortal.Activate();
+                parentPortal.Deactivate();
             }
         }
     }
