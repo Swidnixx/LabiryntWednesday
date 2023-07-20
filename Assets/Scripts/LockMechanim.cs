@@ -29,6 +29,7 @@ public class LockMechanim : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             playerInRange = true;
+            player = other.transform;
             if (!alreadyOpen)
             {
                 DisplayUI.Instance.DisplayInfo("Press E to Open if you have proper key"); 
@@ -44,9 +45,26 @@ public class LockMechanim : MonoBehaviour
            playerInRange = false;
         }
     }
-
+    Transform player;
+        float dot = 0;
     private void Update()
     {
+        dot = 0;
+        if(playerInRange)
+        {
+
+            dot = Vector3.Dot(player.forward, (transform.position - player.position).normalized);
+            if (dot > 0.5f)
+            {
+                DisplayUI.Instance.DisplayInfo("Press E to Open if you have proper key");
+            }
+            else
+            {
+                DisplayUI.Instance.ClearInfoText();
+            }
+        }
+
+
        if( Input.GetKeyDown(KeyCode.E) && playerInRange )
        {
             if ( !alreadyOpen )
