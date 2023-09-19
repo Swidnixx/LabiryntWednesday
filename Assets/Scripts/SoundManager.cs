@@ -18,9 +18,4 @@ public class SoundManager : MonoBehaviour
     {
         audiSource.PlayOneShot(clip);
     }
-
-    internal void PlaySFX(object keyUnlockClip)
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -55,7 +55,7 @@ public class Key : Pickup
     {
         List<string> ids = collectedKeys.Where(pair => pair.Value == KeyType.Gold).Select( pair => pair.Key ).ToList();
 
-        using( StreamWriter sw = new StreamWriter(Application.dataPath + "save.bin"))
+        using( StreamWriter sw = new StreamWriter(Application.dataPath + "\\save.bin"))
         {
             foreach( string line in ids)
             {
@@ -66,12 +66,12 @@ public class Key : Pickup
 
     public static void LoadGoldKeys()
     {
-        if (!File.Exists(Application.dataPath + "save.bin")) return;
+        if (!File.Exists(Application.dataPath + "\\save.bin")) return;
 
         if (!loaded)
         {
             List<string> ids = new List<string>();
-            using (StreamReader sr = new StreamReader(Application.dataPath + "save.bin"))
+            using (StreamReader sr = new StreamReader(Application.dataPath + "\\save.bin"))
             {
                 while (!sr.EndOfStream)
                 {

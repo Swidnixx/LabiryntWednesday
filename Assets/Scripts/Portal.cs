@@ -40,7 +40,7 @@ public class Portal : MonoBehaviour
         portalCam.transform.SetPositionAndRotation(m.GetColumn(3), m.rotation);
 
         Vector3 cameraToPortal = transform.position - portalCam.transform.position;
-        float nearPlane = cameraToPortal.magnitude;
+        float nearPlane = cameraToPortal.magnitude - 0.5f;
         if (nearPlane > 0.2f)
             portalCam.nearClipPlane = Mathf.Clamp(nearPlane - 0.2f, 0.01f, 50);
         else
