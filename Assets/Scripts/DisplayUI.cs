@@ -33,7 +33,7 @@ public class DisplayUI : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Paused += OnPause;
+        GameManager.GamePaused += OnPause;
         GameManager.Lose += OnLose;
         GameManager.Win += OnWin;
 
@@ -45,7 +45,7 @@ public class DisplayUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.Paused -= OnPause;
+        GameManager.GamePaused -= OnPause;
         GameManager.Lose -= OnLose;
         GameManager.Win -= OnWin;
     }
@@ -65,6 +65,7 @@ public class DisplayUI : MonoBehaviour
     {
         if(paused)
         {
+            ClearInfoText();
             pausePanel.SetActive(true);
         }
         else

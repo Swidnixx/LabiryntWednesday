@@ -19,13 +19,14 @@ public class GameManager : MonoBehaviour
     }
 
     //Main Game Events
-    public static event Action<bool> Paused;
+    public static event Action<bool> GamePaused;
     public static event Action Lose;
     public static event Action Win;
 
     //Game Logic
     public int timer = 60;
     bool paused;
+    public static bool Paused => Instance.paused;
     public bool Freeze { get; private set; }
     bool gameEnded;
 
@@ -79,13 +80,13 @@ public class GameManager : MonoBehaviour
     {
         paused = false;
         Time.timeScale = 1;
-        Paused?.Invoke(false);
+        GamePaused?.Invoke(false);
     }
     private void Pause()
     {
         paused = true;
         Time.timeScale = 0;
-        Paused?.Invoke(true);
+        GamePaused?.Invoke(true);
     }
     void Stopper()
     {

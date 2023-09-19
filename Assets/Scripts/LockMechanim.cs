@@ -12,12 +12,15 @@ public class LockMechanim : MonoBehaviour
     public Key.KeyType keyColor;
     public float gearsDelay = 1;
 
+    public AudioClip keyUnlockClip;
+    
     bool playerInRange;
-    bool alreadyOpen = false; 
+    bool alreadyOpen = false;
+    bool displayingInfo;
 
     Animator animator;
+    Transform player;
 
-    public AudioClip keyUnlockClip;
 
     private void Start()
     {
@@ -30,10 +33,6 @@ public class LockMechanim : MonoBehaviour
         {
             playerInRange = true;
             player = other.transform;
-            if (!alreadyOpen)
-            {
-                DisplayUI.Instance.DisplayInfo("Press E to Open if you have proper key"); 
-            }
         }
     }
 
@@ -41,27 +40,32 @@ public class LockMechanim : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            DisplayUI.Instance.ClearInfoText();
-           playerInRange = false;
+            playerInRange = false;
         }
     }
-    Transform player;
-        float dot = 0;
+
     private void Update()
     {
-        dot = 0;
-        if(playerInRange)
-        {
+        if (GameManager.Paused)
+            return;
 
+        float dot = 0;
+        if(playerInRange && !alreadyOpen)
+        {
             dot = Vector3.Dot(player.forward, (transform.position - player.position).normalized);
             if (dot > 0.5f)
             {
                 DisplayUI.Instance.DisplayInfo("Press E to Open if you have proper key");
+                displayingInfo = true;
             }
             else
             {
                 DisplayUI.Instance.ClearInfoText();
             }
+        }
+        else if(displayingInfo)
+        {
+            DisplayUI.Instance.ClearInfoText();
         }
 
 
